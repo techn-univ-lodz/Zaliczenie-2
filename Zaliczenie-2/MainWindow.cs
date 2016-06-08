@@ -31,27 +31,32 @@ public partial class MainWindow: Gtk.Window
 
 	protected void changedScalarA (object sender, EventArgs e)
 	{
-		this.scalarA.Set((float)Convert.ToDouble (this.entryScalar1.Text));
+		if( this.entryScalar1.Text.Length != 0)
+			this.scalarA.Set((float)Convert.ToDouble (this.entryScalar1.Text));
 	}
 
 	protected void changedScalarB (object sender, EventArgs e)
 	{
-		this.scalarB.Set ((float)Convert.ToDouble (this.entryScalar2.Text));
+		if( this.entryScalar2.Text.Length != 0)
+			this.scalarB.Set ((float)Convert.ToDouble (this.entryScalar2.Text));
 	}
 
 	protected void changedVectorA_1 (object sender, EventArgs e)
 	{
-		this.vectorA.Set ((float)Convert.ToDouble(this.entryVector1_1.Text), 1);
+		if( this.entryVector1_1.Text.Length != 0)
+			this.vectorA.Set ((float)Convert.ToDouble(this.entryVector1_1.Text), 1);
 	}
 
 	protected void changedVectorA_2 (object sender, EventArgs e)
 	{
-		this.vectorA.Set ((float)Convert.ToDouble(this.entryVector1_2.Text), 2);
+		if( this.entryVector1_2.Text.Length != 0)
+			this.vectorA.Set ((float)Convert.ToDouble(this.entryVector1_2.Text), 2);
 	}
 
 	protected void changedVectorA_3 (object sender, EventArgs e)
 	{
-		this.vectorA.Set ((float)Convert.ToDouble(this.entryVector1_3.Text), 3);
+		if( this.entryVector1_3.Text.Length != 0)	
+			this.vectorA.Set ((float)Convert.ToDouble(this.entryVector1_3.Text), 3);
 	}
 
 	protected void changedVectorB_1 (object sender, EventArgs e)
