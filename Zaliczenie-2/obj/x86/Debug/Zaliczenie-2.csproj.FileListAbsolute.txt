@@ -1,5 +1,0 @@
-C:\Users\dydaktyk\Desktop\rozw\Zaliczenie-2\Zaliczenie-2\bin\Debug\Zaliczenie-2.exe
-C:\Users\dydaktyk\Desktop\rozw\Zaliczenie-2\Zaliczenie-2\bin\Debug\Zaliczenie-2.pdb
-C:\Users\dydaktyk\Desktop\rozw\Zaliczenie-2\Zaliczenie-2\obj\x86\Debug\Zaliczenie-2.csprojResolveAssemblyReference.cache
-C:\Users\dydaktyk\Desktop\rozw\Zaliczenie-2\Zaliczenie-2\obj\x86\Debug\Zaliczenie-2.exe
-C:\Users\dydaktyk\Desktop\rozw\Zaliczenie-2\Zaliczenie-2\obj\x86\Debug\Zaliczenie-2.pdb
