@@ -4,27 +4,22 @@ using Zaliczenie2;
 
 public partial class MainWindow: Gtk.Window
 {
-	Scalar a, b, x;
-	Vector c, d, y;
-	//Matrix
+	Scalar scalarA, scalarB, scalarX;
+	Vector vectorA, vectorB, vectorX;
+	Matrix MatrixA, MatrixB, MatrixX;
 
 	public MainWindow () : base (Gtk.WindowType.Toplevel)
 	{
 		Build ();
-		a = new Scalar ();
-		b = new Scalar ();
+		scalarA = new Scalar ();
+		scalarB = new Scalar ();
 
-		c = new Vector ();
-		d = new Vector ();
+		vectorA = new Vector ();
+		vectorB = new Vector ();
 
-		//testowanie
-		//Vector testA = new Vector();
-		//Console.WriteLine ("Wektor 0,0,0: " + testA.ToString());
-		//testA.Set (1, 2, 3);
-		//Console.WriteLine ("Wektor 1,2,3: " + testA.ToString());
-		//Console.WriteLine ("Długość: " + Vector.Lenght(ref testA).ToString());
-
-
+		MatrixA = new Matrix ();
+		MatrixB = new Matrix ();
+	
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
@@ -32,102 +27,146 @@ public partial class MainWindow: Gtk.Window
 		Application.Quit ();
 		a.RetVal = true;
 	}
+		
 
-	protected void setOperationOnScalar (object sender, EventArgs e)
+	protected void changedScalarA (object sender, EventArgs e)
+	{
+		this.scalarA.Set((float)Convert.ToDouble (this.entryScalar1.Text));
+	}
+
+	protected void changedScalarB (object sender, EventArgs e)
+	{
+		this.scalarB.Set ((float)Convert.ToDouble (this.entryScalar2.Text));
+	}
+
+	protected void changedVectorA_1 (object sender, EventArgs e)
+	{
+		this.vectorA.Set ((float)Convert.ToDouble(this.entryVector1_1.Text), 1);
+	}
+
+	protected void changedVectorA_2 (object sender, EventArgs e)
+	{
+		this.vectorA.Set ((float)Convert.ToDouble(this.entryVector1_2.Text), 2);
+	}
+
+	protected void changedVectorA_3 (object sender, EventArgs e)
+	{
+		this.vectorA.Set ((float)Convert.ToDouble(this.entryVector1_3.Text), 3);
+	}
+
+	protected void changedVectorB_1 (object sender, EventArgs e)
+	{
+		this.vectorB.Set ((float)Convert.ToDouble(this.entryVector2_1.Text), 1);
+	}
+
+	protected void changedVectorB_2 (object sender, EventArgs e)
+	{
+		this.vectorB.Set ((float)Convert.ToDouble(this.entryVector2_2.Text), 2);
+	}
+
+	protected void changedVectorB_3 (object sender, EventArgs e)
+	{
+		this.vectorB.Set ((float)Convert.ToDouble(this.entryVector2_3.Text), 3);
+	}
+
+	void doScalarSum ()
+	{
+		Scalar.Sum (ref this.scalarA, ref this.scalarB, out this.scalarX);
+		this.textviewScalar.Buffer.Text += "Wynik sumowania wartości skalarnych " 
+			+ this.scalarA.ToString () + " i " 
+			+ this.scalarB.ToString () + " to " 
+			+ this.scalarX.ToString () + "\n";
+	}
+
+	void doScalarMultiplication ()
+	{
+		Scalar.Multiplication (ref this.scalarA, ref this.scalarB, out this.scalarX);
+		this.textviewScalar.Buffer.Text += "Iloczyn wartości skalarnych " 
+			+ this.scalarA.ToString () + " i " 
+			+ this.scalarB.ToString () + " to " 
+			+ this.scalarX.ToString () + "\n";
+	}
+
+	void doScalarDivide ()
+	{
+		Scalar.Divide (ref this.scalarA, ref this.scalarB, out this.scalarX);
+		this.textviewScalar.Buffer.Text += "Iloraz wartości skalarnych " 
+			+ this.scalarA.ToString () + " i " 
+			+ this.scalarB.ToString () + " to " 
+			+ this.scalarX.ToString () + "\n";
+	}
+
+	void doVectorSum ()
+	{
+		Vector.Sum (ref this.vectorA, ref this.vectorB, out this.vectorX);
+		this.textviewVector.Buffer.Text += "Suma wektorów " 
+			+ this.vectorA.ToString () + " i " 
+			+ this.vectorB.ToString () + " to " 
+			+ this.vectorX.ToString () + "\n";
+	}
+
+	void doVectorDiff ()
+	{
+		Vector.Diff (ref this.vectorA, ref this.vectorB, out this.vectorX);
+		this.textviewVector.Buffer.Text += "Różnica wektorów " 
+			+ this.vectorA.ToString () + " i " 
+			+ this.vectorB.ToString () + " to " 
+			+ this.vectorX.ToString () + "\n";
+	}
+
+	void doDotProduct ()
+	{
+		Vector.DotProduct (ref this.vectorA, ref this.vectorB, out this.scalarX);
+		this.textviewVector.Buffer.Text += "Iloczyn skalarny " 
+			+ this.vectorA.ToString () + " i " 
+			+ this.vectorB.ToString () + " to " 
+			+ this.scalarX.ToString () + "\n";
+	}
+
+	void doVectorProduct ()
+	{
+		Vector.CrossProduct (ref this.vectorA, ref this.vectorB, out this.vectorX);
+		this.textviewVector.Buffer.Text += "Iloczyn wektorowy " 
+			+ this.vectorA.ToString () + " i " 
+			+ this.vectorB.ToString () + " to " 
+			+ this.vectorX.ToString () + "\n";
+	}
+
+	void doVectorLenght ()
+	{
+		this.textviewVector.Buffer.Text += "Długośc wektora 1:  " 
+			+ Vector.Lenght (ref vectorA).ToString () + "\n";
+	}
+
+	protected void setOperationScalar (object sender, EventArgs e)
 	{
 		if (comboboxScalar.Active == 0) {
-			Scalar.Sum (ref this.a, ref this.b, out this.x);
-			this.textviewScalar.Buffer.Text += "Wynik sumowania wartości skalarnych " + this.a.ToString () + " i " + this.b.ToString () + " to " + this.x.ToString () + "\n";
+			doScalarSum ();
 		} else if (comboboxScalar.Active == 1) {
-			Scalar.Multiplication (ref this.a, ref this.b, out this.x);
-			this.textviewScalar.Buffer.Text += "Iloczyn wartości skalarnych " + this.a.ToString () + " i " + this.b.ToString () + " to " + this.x.ToString () + "\n";
+			doScalarMultiplication ();
 		} else if (comboboxScalar.Active == 2) {
-			Scalar.Divide (ref this.a, ref this.b, out this.x);
-			this.textviewScalar.Buffer.Text += "Iloraz wartości skalarnych " + this.a.ToString () + " i " + this.b.ToString () + " to " + this.x.ToString () + "\n";
+			doScalarDivide ();
 		}
 	}
 
-	protected void changedA (object sender, EventArgs e)
-	{
-		this.a.Set((float)Convert.ToDouble (this.entryScalar1.Text));
-	}
-
-	protected void changedB (object sender, EventArgs e)
-	{
-		this.b.Set ((float)Convert.ToDouble (this.entryScalar2.Text));
-	}
-
-	protected void changedA_1 (object sender, EventArgs e)
-	{
-		this.c.Set ((float)Convert.ToDouble(this.entryVector1_1.Text), 1);
-	}
-
-	protected void changedA_2 (object sender, EventArgs e)
-	{
-		this.c.Set ((float)Convert.ToDouble(this.entryVector1_2.Text), 2);
-	}
-
-	protected void changedA_3 (object sender, EventArgs e)
-	{
-		this.c.Set ((float)Convert.ToDouble(this.entryVector1_3.Text), 3);
-	}
-
-	protected void changedB_1 (object sender, EventArgs e)
-	{
-		this.d.Set ((float)Convert.ToDouble(this.entryVector2_1.Text), 1);
-	}
-
-	protected void changedB_2 (object sender, EventArgs e)
-	{
-		this.d.Set ((float)Convert.ToDouble(this.entryVector2_2.Text), 2);
-	}
-
-	protected void changedB_3 (object sender, EventArgs e)
-	{
-		this.d.Set ((float)Convert.ToDouble(this.entryVector2_3.Text), 3);
-	}
-
-	void sum ()
-	{
-		Vector.Sum (ref this.c, ref this.d, out this.y);
-		this.textviewVector.Buffer.Text += "Suma wektorów " + this.c.ToString () + " i " + this.d.ToString () + " to " + this.y.ToString () + "\n";
-	}
-
-	void diff ()
-	{
-		Vector.Diff (ref this.c, ref this.d, out this.y);
-		this.textviewVector.Buffer.Text += "Różnica wektorów " + this.c.ToString () + " i " + this.d.ToString () + " to " + this.y.ToString () + "\n";
-	}
-
-	void dot_product ()
-	{
-		Vector.DotProduct (ref this.c, ref this.d, out this.x);
-		this.textviewVector.Buffer.Text += "Iloczyn skalarny " + this.c.ToString () + " i " + this.d.ToString () + " to " + this.x.ToString () + "\n";
-	}
-
-	void cross_product ()
-	{
-		Vector.CrossProduct (ref this.c, ref this.d, out this.y);
-		this.textviewVector.Buffer.Text += "Iloczyn wektorowy " + this.c.ToString () + " i " + this.d.ToString () + " to " + this.y.ToString () + "\n";
-	}
-
-	void lenght ()
-	{
-		this.textviewVector.Buffer.Text += "Długośc wektora 1:  " + Vector.Lenght (ref c).ToString () + "\n";
-	}
-
-	protected void setOperationOnVector (object sender, EventArgs e)
+	protected void setOperationVector (object sender, EventArgs e)
 	{
 		if (comboboxVector.Active == 0) {
-			sum ();
+			doVectorSum ();
 		} else if (comboboxVector.Active == 1) {
-			diff ();
+			doVectorDiff ();
 		} else if (comboboxVector.Active == 2) {
-			dot_product ();
+			doDotProduct ();
 		} else if (comboboxVector.Active == 3) {
-			cross_product ();
+			doVectorProduct ();
 		} else if (comboboxVector.Active == 4) {
-			lenght ();
+			doVectorLenght ();
 		}
+	}
+
+	protected void setOperationMatrix (object sender, EventArgs e)
+	{
+		/////////////////
+		/// do uzupełnienia
 	}
 }

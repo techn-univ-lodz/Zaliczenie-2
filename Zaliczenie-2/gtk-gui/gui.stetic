@@ -8,7 +8,7 @@
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="../bin/Debug/Zaliczenie-2.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="346 339">
+  <widget class="Gtk.Window" id="MainWindow" design-size="329 300">
     <property name="MemberName" />
     <property name="Title" translatable="yes">MainWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -17,7 +17,7 @@
       <widget class="Gtk.Notebook" id="notebook1">
         <property name="MemberName" />
         <property name="CanFocus">True</property>
-        <property name="CurrentPage">0</property>
+        <property name="CurrentPage">1</property>
         <child>
           <widget class="Gtk.Fixed" id="fixed1">
             <property name="MemberName" />
@@ -48,7 +48,7 @@
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
                 <property name="InvisibleChar">●</property>
-                <signal name="Changed" handler="changedA" />
+                <signal name="Changed" handler="changedScalarA" />
               </widget>
               <packing>
                 <property name="X">1</property>
@@ -61,7 +61,7 @@
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
                 <property name="InvisibleChar">●</property>
-                <signal name="Changed" handler="changedB" />
+                <signal name="Changed" handler="changedScalarB" />
               </widget>
               <packing>
                 <property name="X">163</property>
@@ -109,7 +109,7 @@
                 <property name="Items" translatable="yes">Suma
 Iloczyn
 Iloraz</property>
-                <signal name="Changed" handler="setOperationOnScalar" />
+                <signal name="Changed" handler="setOperationScalar" />
               </widget>
               <packing>
                 <property name="X">164</property>
@@ -163,7 +163,7 @@ Iloczyn skalarny
 Iloczyn wektorowy
 Długość (wekt. 1)</property>
                 <property name="Active">0</property>
-                <signal name="Changed" handler="setOperationOnVector" />
+                <signal name="Changed" handler="setOperationVector" />
               </widget>
               <packing>
                 <property name="X">121</property>
@@ -177,7 +177,6 @@ Długość (wekt. 1)</property>
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
                 <property name="InvisibleChar">●</property>
-                <signal name="Changed" handler="changedA_2" />
               </widget>
               <packing>
                 <property name="X">27</property>
@@ -191,7 +190,6 @@ Długość (wekt. 1)</property>
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
                 <property name="InvisibleChar">●</property>
-                <signal name="Changed" handler="changedA_3" />
               </widget>
               <packing>
                 <property name="X">27</property>
@@ -205,7 +203,6 @@ Długość (wekt. 1)</property>
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
                 <property name="InvisibleChar">●</property>
-                <signal name="Changed" handler="changedA_1" />
               </widget>
               <packing>
                 <property name="X">27</property>
@@ -219,7 +216,6 @@ Długość (wekt. 1)</property>
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
                 <property name="InvisibleChar">●</property>
-                <signal name="Changed" handler="changedB_1" />
               </widget>
               <packing>
                 <property name="X">224</property>
@@ -233,7 +229,6 @@ Długość (wekt. 1)</property>
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
                 <property name="InvisibleChar">●</property>
-                <signal name="Changed" handler="changedB_2" />
               </widget>
               <packing>
                 <property name="X">224</property>
@@ -247,7 +242,6 @@ Długość (wekt. 1)</property>
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
                 <property name="InvisibleChar">●</property>
-                <signal name="Changed" handler="changedB_3" />
               </widget>
               <packing>
                 <property name="X">224</property>
@@ -336,6 +330,7 @@ Długość (wekt. 1)</property>
                 <property name="Items" translatable="yes">Suma
 Iloczyn
 Suma elementów (Macierz 1)</property>
+                <signal name="Changed" handler="setOperationMatrix" />
               </widget>
               <packing>
                 <property name="X">121</property>
