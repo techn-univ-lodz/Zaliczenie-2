@@ -108,7 +108,7 @@ public partial class MainWindow
 		this.notebook1 = new global::Gtk.Notebook ();
 		this.notebook1.CanFocus = true;
 		this.notebook1.Name = "notebook1";
-		this.notebook1.CurrentPage = 1;
+		this.notebook1.CurrentPage = 0;
 		// Container child notebook1.Gtk.Notebook+NotebookChild
 		this.fixed1 = new global::Gtk.Fixed ();
 		this.fixed1.Name = "fixed1";
@@ -167,8 +167,8 @@ public partial class MainWindow
 		w6.Y = 125;
 		// Container child fixed1.Gtk.Fixed+FixedChild
 		this.comboboxScalar = global::Gtk.ComboBox.NewText ();
-		this.comboboxScalar.AppendText (global::Mono.Unix.Catalog.GetString ("Suma"));
-		this.comboboxScalar.AppendText (global::Mono.Unix.Catalog.GetString ("Iloczyn"));
+		this.comboboxScalar.AppendText (global::Mono.Unix.Catalog.GetString ("Suma\r"));
+		this.comboboxScalar.AppendText (global::Mono.Unix.Catalog.GetString ("Iloczyn\r"));
 		this.comboboxScalar.AppendText (global::Mono.Unix.Catalog.GetString ("Iloraz"));
 		this.comboboxScalar.WidthRequest = 138;
 		this.comboboxScalar.Name = "comboboxScalar";
@@ -206,13 +206,14 @@ public partial class MainWindow
 		w10.Y = 9;
 		// Container child fixed2.Gtk.Fixed+FixedChild
 		this.comboboxVector = global::Gtk.ComboBox.NewText ();
-		this.comboboxVector.AppendText (global::Mono.Unix.Catalog.GetString ("Suma"));
-		this.comboboxVector.AppendText (global::Mono.Unix.Catalog.GetString ("Różnica"));
-		this.comboboxVector.AppendText (global::Mono.Unix.Catalog.GetString ("Iloczyn skalarny"));
-		this.comboboxVector.AppendText (global::Mono.Unix.Catalog.GetString ("Iloczyn wektorowy"));
+		this.comboboxVector.AppendText (global::Mono.Unix.Catalog.GetString ("Suma\r"));
+		this.comboboxVector.AppendText (global::Mono.Unix.Catalog.GetString ("Różnica\r"));
+		this.comboboxVector.AppendText (global::Mono.Unix.Catalog.GetString ("Iloczyn skalarny\r"));
+		this.comboboxVector.AppendText (global::Mono.Unix.Catalog.GetString ("Iloczyn wektorowy\r"));
 		this.comboboxVector.AppendText (global::Mono.Unix.Catalog.GetString ("Długość (wekt. 1)"));
 		this.comboboxVector.WidthRequest = 138;
 		this.comboboxVector.Name = "comboboxVector";
+		this.comboboxVector.Active = 0;
 		this.fixed2.Add (this.comboboxVector);
 		global::Gtk.Fixed.FixedChild w11 = ((global::Gtk.Fixed.FixedChild)(this.fixed2 [this.comboboxVector]));
 		w11.X = 121;
@@ -337,8 +338,8 @@ public partial class MainWindow
 		w23.Y = 12;
 		// Container child fixed3.Gtk.Fixed+FixedChild
 		this.comboboxMatrix = global::Gtk.ComboBox.NewText ();
-		this.comboboxMatrix.AppendText (global::Mono.Unix.Catalog.GetString ("Suma"));
-		this.comboboxMatrix.AppendText (global::Mono.Unix.Catalog.GetString ("Iloczyn"));
+		this.comboboxMatrix.AppendText (global::Mono.Unix.Catalog.GetString ("Suma\r"));
+		this.comboboxMatrix.AppendText (global::Mono.Unix.Catalog.GetString ("Iloczyn\r"));
 		this.comboboxMatrix.AppendText (global::Mono.Unix.Catalog.GetString ("Suma elementów (Macierz 1)"));
 		this.comboboxMatrix.WidthRequest = 138;
 		this.comboboxMatrix.Name = "comboboxMatrix";
@@ -551,13 +552,19 @@ public partial class MainWindow
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
 		}
-		this.DefaultWidth = 368;
-		this.DefaultHeight = 294;
+		this.DefaultWidth = 346;
+		this.DefaultHeight = 339;
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 		this.entryScalar1.Changed += new global::System.EventHandler (this.changedA);
 		this.entryScalar2.Changed += new global::System.EventHandler (this.changedB);
 		this.comboboxScalar.Changed += new global::System.EventHandler (this.setOperationOnScalar);
 		this.comboboxVector.Changed += new global::System.EventHandler (this.setOperationOnVector);
+		this.entryVector1_2.Changed += new global::System.EventHandler (this.changedA_2);
+		this.entryVector1_3.Changed += new global::System.EventHandler (this.changedA_3);
+		this.entryVector1_1.Changed += new global::System.EventHandler (this.changedA_1);
+		this.entryVector2_1.Changed += new global::System.EventHandler (this.changedB_1);
+		this.entryVector2_2.Changed += new global::System.EventHandler (this.changedB_2);
+		this.entryVector2_3.Changed += new global::System.EventHandler (this.changedB_3);
 	}
 }

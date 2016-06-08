@@ -34,6 +34,16 @@ namespace Zaliczenie2
 			x = new Scalar ();
 			x.Set (a.Get () + b.Get ());
 		}
+
+		public static void Multiplication(ref Scalar a, ref Scalar b, out Scalar x) {
+			x = new Scalar ();
+			x.Set (a.Get () * b.Get ());
+		}
+
+		public static void Divide(ref Scalar a, ref Scalar b, out Scalar x) {
+			x = new Scalar ();
+			x.Set (a.Get () / b.Get ());
+		}
 			
 	}
 }

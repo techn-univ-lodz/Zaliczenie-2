@@ -8,7 +8,7 @@
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="../bin/Debug/Zaliczenie-2.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="368 294">
+  <widget class="Gtk.Window" id="MainWindow" design-size="346 339">
     <property name="MemberName" />
     <property name="Title" translatable="yes">MainWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -17,7 +17,7 @@
       <widget class="Gtk.Notebook" id="notebook1">
         <property name="MemberName" />
         <property name="CanFocus">True</property>
-        <property name="CurrentPage">1</property>
+        <property name="CurrentPage">0</property>
         <child>
           <widget class="Gtk.Fixed" id="fixed1">
             <property name="MemberName" />
@@ -162,6 +162,7 @@ Różnica
 Iloczyn skalarny
 Iloczyn wektorowy
 Długość (wekt. 1)</property>
+                <property name="Active">0</property>
                 <signal name="Changed" handler="setOperationOnVector" />
               </widget>
               <packing>
@@ -176,6 +177,7 @@ Długość (wekt. 1)</property>
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
                 <property name="InvisibleChar">●</property>
+                <signal name="Changed" handler="changedA_2" />
               </widget>
               <packing>
                 <property name="X">27</property>
@@ -189,6 +191,7 @@ Długość (wekt. 1)</property>
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
                 <property name="InvisibleChar">●</property>
+                <signal name="Changed" handler="changedA_3" />
               </widget>
               <packing>
                 <property name="X">27</property>
@@ -202,6 +205,7 @@ Długość (wekt. 1)</property>
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
                 <property name="InvisibleChar">●</property>
+                <signal name="Changed" handler="changedA_1" />
               </widget>
               <packing>
                 <property name="X">27</property>
@@ -215,6 +219,7 @@ Długość (wekt. 1)</property>
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
                 <property name="InvisibleChar">●</property>
+                <signal name="Changed" handler="changedB_1" />
               </widget>
               <packing>
                 <property name="X">224</property>
@@ -228,6 +233,7 @@ Długość (wekt. 1)</property>
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
                 <property name="InvisibleChar">●</property>
+                <signal name="Changed" handler="changedB_2" />
               </widget>
               <packing>
                 <property name="X">224</property>
@@ -241,6 +247,7 @@ Długość (wekt. 1)</property>
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
                 <property name="InvisibleChar">●</property>
+                <signal name="Changed" handler="changedB_3" />
               </widget>
               <packing>
                 <property name="X">224</property>
